@@ -19,11 +19,15 @@ const LoginPage = ({navigation}) => {
     <Layout>
       <Image
         source={require('../src/Logo.png')}
-        style={{width: '75%', height: '50%'}}
+        style={{width: 500, height: 300}}
         resizeMode="contain"
       />
       <Text>E-mail</Text>
-      <TextInput type="email" onChangeText={handleEmail} value={email} />
+      <TextInput
+        type="email-address"
+        onChangeText={handleEmail}
+        value={email}
+      />
       <Text>Password</Text>
 
       <View style={{flexDirection: 'row', alignItems: 'center'}}>

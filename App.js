@@ -10,8 +10,11 @@ import {
   Home,
   Account,
   Approval,
+  Attendance,
+  Leave,
+  Notification,
 } from './screen';
-import Icon from 'react-native-vector-icons/dist/FontAwesome6';
+import Icon from 'react-native-vector-icons/dist/Ionicons';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 
 const Tab = createBottomTabNavigator();
@@ -19,32 +22,48 @@ const Stack = createNativeStackNavigator();
 
 function MyTabs() {
   return (
-    <Tab.Navigator>
+    <Tab.Navigator
+      screenOptions={({route}) => ({
+        tabBarIcon: ({focused, color, size}) => {
+          let iconName;
+          if (route.name === 'Home') {
+            iconName = focused ? 'home' : 'home-outline';
+          } else if (route.name === 'Approval') {
+            iconName = focused ? 'document-text' : 'document-text-outline';
+          } else if (route.name === 'Account') {
+            iconName = focused ? 'person' : 'person-outline';
+          }
+          return <Icon name={iconName} size={size} color={color} />;
+        },
+        tabBarActiveTintColor: '#a60f21',
+        tabBarInactiveTintColor: 'gray',
+      })}>
       <Tab.Screen
         name="Home"
         component={Home}
         options={{
-          tabBarIcon: ({color, size}) => (
-            <Icon name="house" size={size} color={color} />
-          ),
+          tabBarLabel: props => <Text style={{color: props.color}}>Home</Text>,
+          headerShown: false,
         }}
       />
       <Tab.Screen
         name="Approval"
         component={Approval}
         options={{
-          tabBarIcon: ({color, size}) => (
-            <Icon name="dochub" size={size} color={color} />
+          tabBarLabel: props => (
+            <Text style={{color: props.color}}>Approval</Text>
           ),
+          headerShown: false,
         }}
       />
       <Tab.Screen
         name="Account"
         component={Account}
         options={{
-          tabBarIcon: ({color, size}) => (
-            <Icon name="circle-user" size={size} color={color} />
+          tabBarLabel: props => (
+            <Text style={{color: props.color}}>Account</Text>
           ),
+          headerShown: false,
         }}
       />
     </Tab.Navigator>
@@ -54,7 +73,7 @@ function MyTabs() {
 function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator>
+      <Stack.Navigator screenOptions={{headerShown: false}}>
         <Stack.Screen
           options={{headerShown: false}}
           name="Login"
@@ -69,6 +88,26 @@ function App() {
           options={{headerShown: false}}
           name="Tabs"
           component={MyTabs}
+        />
+        <Stack.Screen
+          options={{headerShown: false}}
+          name="Attendance"
+          component={Attendance}
+        />
+        <Stack.Screen
+          options={{headerShown: false}}
+          name="Loan"
+          component={Loan}
+        />
+        <Stack.Screen
+          options={{headerShown: false}}
+          name="Leave"
+          component={Leave}
+        />
+        <Stack.Screen
+          options={{headerShown: false}}
+          name="Notifications"
+          component={Notification}
         />
       </Stack.Navigator>
     </NavigationContainer>

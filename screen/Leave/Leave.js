@@ -3,12 +3,12 @@ import {View, StyleSheet} from 'react-native';
 import {Button, Layout, TextInput, Header, Text} from '../../components';
 
 // create a component
-const Attendance = ({navigation}) => {
+const Leave = ({navigation}) => {
   return (
     <>
-      <Header title="Attendance" back={() => navigation.goBack()} />
+      <Header title="Leave" back={() => navigation.goBack()} />
       <Layout customStyles={{justifyContent: 'flex-start'}}>
-        <Text>Attendance</Text>
+        <Text>Leave</Text>
       </Layout>
     </>
   );
@@ -18,11 +18,11 @@ const Attendance = ({navigation}) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: '',
+    justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#2c3e50',
   },
 });
 
 //make this component available to the app
-export default Attendance;
+export default Leave;

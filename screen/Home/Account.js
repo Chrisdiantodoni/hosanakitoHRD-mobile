@@ -1,11 +1,15 @@
 import React from 'react';
-import {View, StyleSheet, Text} from 'react-native';
+import {View, StyleSheet} from 'react-native';
+import {Button, Layout, TextInput, Header, Text} from '../../components';
 
 const Account = () => {
   return (
-    <View>
-      <Text>Account</Text>
-    </View>
+    <>
+      <Header title="Account" />
+      <Layout customStyles={{justifyContent: 'flex-start'}}>
+        <Text>Account</Text>
+      </Layout>
+    </>
   );
 };
 

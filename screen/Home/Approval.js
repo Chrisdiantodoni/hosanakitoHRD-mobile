@@ -1,12 +1,15 @@
 import React from 'react';
-import {View, StyleSheet, Text} from 'react-native';
-import {Button, Layout, TextInput} from '../../components';
+import {View, StyleSheet} from 'react-native';
+import {Button, Layout, TextInput, Header, Text} from '../../components';
 
 const Approval = () => {
   return (
-    <View>
-      <Text>Approval</Text>
-    </View>
+    <>
+      <Header title="Approval" />
+      <Layout customStyles={{justifyContent: 'flex-start'}}>
+        <Text>Approval</Text>
+      </Layout>
+    </>
   );
 };
 

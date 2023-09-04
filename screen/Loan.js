@@ -1,14 +1,28 @@
-import React from 'react';
+import React, {Component} from 'react';
 import {View, StyleSheet} from 'react-native';
+import {Button, Layout, TextInput, Header, Text} from '../components';
 
-const Loan = () => {
+// create a component
+const Loan = ({navigation}) => {
   return (
-    <View>
-      <Text>Loan</Text>
-    </View>
+    <>
+      <Header title="Loan" back={() => navigation.goBack()} />
+      <Layout customStyles={{justifyContent: 'flex-start'}}>
+        <Text>Loan</Text>
+      </Layout>
+    </>
   );
 };
 
-const styles = StyleSheet.create({});
+// define your styles
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#2c3e50',
+  },
+});
 
+//make this component available to the app
 export default Loan;
