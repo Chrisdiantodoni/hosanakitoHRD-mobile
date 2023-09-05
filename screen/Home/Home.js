@@ -45,6 +45,15 @@ const Home = ({navigation}) => {
               </Text>
             </TouchableOpacity>
           ))}
+          <TouchableOpacity
+            style={styles.stickyButton}
+            onPress={() => navigation.navigate('Clocking')}>
+            <Image
+              source={require('../../src/Camera.png')}
+              style={{width: 50, height: 30}}
+              resizeMode="cover"
+            />
+          </TouchableOpacity>
         </View>
       </Layout>
     </>
@@ -68,6 +77,27 @@ const styles = StyleSheet.create({
     height: '20%',
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  stickyButton: {
+    position: 'absolute',
+    bottom: 10,
+    right: 10,
+    backgroundColor: '#F0F0F0',
+    paddingVertical: 10,
+    paddingHorizontal: 20,
+    borderRadius: 5,
+    justifyContent: 'center',
+    alignItems: 'center',
+    height: 70,
+    width: 70,
+    borderRadius: 70 / 2,
+    borderColor: '#a60f21',
+    borderWidth: 1,
+  },
+  buttonText: {
+    color: 'white',
+    fontSize: 16,
+    fontWeight: 'bold',
   },
 });
 

@@ -7,6 +7,7 @@ const textInput = ({
   customStyles,
   type,
   Appearance,
+  disabled,
   secureTextEntry,
   value,
 }) => {
@@ -20,6 +21,7 @@ const textInput = ({
         customStyles,
         {fontSize}, // Terapkan ukuran teks responsif di sini
       ]}
+      editable={disabled}
       secureTextEntry={secureTextEntry}
       value={value}
       keyboardType={type}></TextInput>
@@ -28,7 +30,7 @@ const textInput = ({
 
 const styles = StyleSheet.create({
   textInput: {
-    backgroundColor: '#C0C0C0',
+    backgroundColor: '#F0F0F0',
     color: '#000000',
     width: '100%',
     borderRadius: 8,

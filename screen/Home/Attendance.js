@@ -1,14 +1,43 @@
 import React, {Component} from 'react';
 import {View, StyleSheet} from 'react-native';
-import {Button, Layout, TextInput, Header, Text} from '../../components';
+import {
+  Button,
+  Layout,
+  TextInput,
+  Header,
+  Text,
+  Section,
+} from '../../components';
 
-// create a component
 const Attendance = ({navigation}) => {
+  const data = [
+    {
+      name: 'Clocking',
+      nav: 'Clocking',
+    },
+    {
+      name: 'Clocking Result',
+      nav: 'ClockingResult',
+    },
+    {
+      name: 'Overtime',
+      nav: 'Overtime',
+    },
+    {
+      name: 'Overtime History',
+      nav: 'OvertimeHistory',
+    },
+    {
+      name: 'Shift',
+      nav: 'Shift',
+    },
+  ];
+
   return (
     <>
       <Header title="Attendance" back={() => navigation.goBack()} />
       <Layout customStyles={{justifyContent: 'flex-start'}}>
-        <Text>Attendance</Text>
+        <Section data={data} />
       </Layout>
     </>
   );

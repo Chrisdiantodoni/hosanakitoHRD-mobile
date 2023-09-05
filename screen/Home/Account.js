@@ -1,13 +1,34 @@
 import React from 'react';
 import {View, StyleSheet} from 'react-native';
-import {Button, Layout, TextInput, Header, Text} from '../../components';
+import {
+  Button,
+  Layout,
+  TextInput,
+  Header,
+  Text,
+  Section,
+} from '../../components';
 
-const Account = () => {
+const Account = ({navigation}) => {
+  const data = [
+    {
+      name: 'Account',
+      nav: 'ProfileAccount',
+    },
+    {
+      name: 'Change Password',
+      nav: 'ChangePassword',
+    },
+    {
+      name: 'Logout',
+      nav: 'Login',
+    },
+  ];
   return (
     <>
       <Header title="Account" />
       <Layout customStyles={{justifyContent: 'flex-start'}}>
-        <Text>Account</Text>
+        <Section data={data} account={true} />
       </Layout>
     </>
   );

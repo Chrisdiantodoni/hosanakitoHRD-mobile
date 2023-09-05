@@ -13,6 +13,11 @@ import {
   Attendance,
   Leave,
   Notification,
+  ChangePassword,
+  ProfileAccount,
+  Clocking,
+  SendClock,
+  Camera,
 } from './screen';
 import Icon from 'react-native-vector-icons/dist/Ionicons';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
@@ -108,6 +113,31 @@ function App() {
           options={{headerShown: false}}
           name="Notifications"
           component={Notification}
+        />
+        <Stack.Screen
+          options={{headerShown: false}}
+          name="ChangePassword"
+          component={ChangePassword}
+        />
+        <Stack.Screen
+          options={{headerShown: false}}
+          name="ProfileAccount"
+          component={ProfileAccount}
+        />
+        <Stack.Screen
+          options={{headerShown: false}}
+          name="Clocking"
+          component={Clocking}
+        />
+        <Stack.Screen
+          options={{headerShown: false}}
+          name="sendClock"
+          component={SendClock}
+        />
+        <Stack.Screen
+          options={{headerShown: false}}
+          name="Camera"
+          component={Camera}
         />
       </Stack.Navigator>
     </NavigationContainer>
