@@ -5,5 +5,15 @@ import Text from './text';
 import Header from './Header';
 import Section from './section';
 import CustomModal from './modal';
+import RadioButton from './radiobtn';
 
-export {Button, TextInput, Layout, Text, Header, Section, CustomModal};
+export {
+  Button,
+  TextInput,
+  Layout,
+  Text,
+  Header,
+  Section,
+  CustomModal,
+  RadioButton,
+};
