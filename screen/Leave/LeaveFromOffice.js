@@ -9,31 +9,12 @@ import {
   Section,
 } from '../../components';
 
-// create a component
-const Leave = ({navigation}) => {
-  const data = [
-    {
-      name: 'Leave',
-      nav: 'LeaveRequest',
-    },
-    {
-      name: 'Permit Leave Office',
-      nav: 'PermitLeaveRequest',
-    },
-    {
-      name: 'Leave History',
-      nav: 'LeaveHistory',
-    },
-    {
-      name: 'Permit Leave Office History',
-      nav: 'PermitLeaveHistory',
-    },
-  ];
+const LeaveFromOffice = ({navigation}) => {
   return (
     <>
-      <Header title="Leave" back={() => navigation.goBack()} />
+      <Header title="Leave From Office" back={() => navigation.goBack()} />
       <Layout customStyles={{justifyContent: 'flex-start'}}>
-        <Section data={data} account={true} />
+        <Text>Leave</Text>
       </Layout>
     </>
   );
@@ -50,4 +31,4 @@ const styles = StyleSheet.create({
 });
 
 //make this component available to the app
-export default Leave;
+export default LeaveFromOffice;

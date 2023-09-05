@@ -1,20 +1,19 @@
 import React from 'react';
-import {View, StyleSheet} from 'react-native';
+import {View, StyleSheet, Image, Dimensions} from 'react-native';
 import {Text, TextInput, Header, Button, Layout} from '../../components';
 import {RFValue} from 'react-native-responsive-fontsize';
 import moment from 'moment';
 
 const SendClock = ({route, navigation}) => {
-  const {title, time} = route.params;
+  const {title, time, photo} = route.params;
+
+  console.log(photo);
 
   return (
     <>
       <Header title={title} back={() => navigation.goBack()} />
-
       <Layout>
-        <View>
-          <Text>RESULT PHOTO</Text>
-        </View>
+        <Image source={{uri: photo}} style={{width: '100%', height: '50%'}} />
         <View
           style={{
             width: '100%',

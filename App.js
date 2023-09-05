@@ -18,9 +18,15 @@ import {
   Clocking,
   SendClock,
   Camera,
+  LeaveFromOffice,
+  LeaveHistory,
+  PermitLeaveOfficeHistory,
+  LeaveRequest,
 } from './screen';
 import Icon from 'react-native-vector-icons/dist/Ionicons';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import Toast, {BaseToast, ErrorToast} from 'react-native-toast-message';
+import {RFValue} from 'react-native-responsive-fontsize';
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
@@ -75,72 +81,127 @@ function MyTabs() {
   );
 }
 
-function App() {
+const toastConfig = {
+  success: props => (
+    <BaseToast
+      {...props}
+      style={{borderLeftColor: '#198754'}}
+      contentContainerStyle={{paddingHorizontal: 15}}
+      text1Style={{
+        fontSize: RFValue(15),
+        fontWeight: '400',
+        color: '#198754',
+      }}
+    />
+  ),
+
+  error: props => (
+    <ErrorToast
+      style={{borderLeftColor: '#CC0000'}}
+      {...props}
+      text1Style={{
+        fontSize: RFValue(17),
+        fontWeight: '400',
+        color: '#CC0000',
+      }}
+      text2Style={{
+        fontSize: RFValue(15),
+        fontWeight: '400',
+        color: '#CC0000',
+      }}
+    />
+  ),
+};
+
+function App(props) {
   return (
-    <NavigationContainer>
-      <Stack.Navigator screenOptions={{headerShown: false}}>
-        <Stack.Screen
-          options={{headerShown: false}}
-          name="Login"
-          component={LoginPage}
-        />
-        <Stack.Screen
-          options={{headerShown: false}}
-          name="ForgetPassword"
-          component={ForgetPassword}
-        />
-        <Stack.Screen
-          options={{headerShown: false}}
-          name="Tabs"
-          component={MyTabs}
-        />
-        <Stack.Screen
-          options={{headerShown: false}}
-          name="Attendance"
-          component={Attendance}
-        />
-        <Stack.Screen
-          options={{headerShown: false}}
-          name="Loan"
-          component={Loan}
-        />
-        <Stack.Screen
-          options={{headerShown: false}}
-          name="Leave"
-          component={Leave}
-        />
-        <Stack.Screen
-          options={{headerShown: false}}
-          name="Notifications"
-          component={Notification}
-        />
-        <Stack.Screen
-          options={{headerShown: false}}
-          name="ChangePassword"
-          component={ChangePassword}
-        />
-        <Stack.Screen
-          options={{headerShown: false}}
-          name="ProfileAccount"
-          component={ProfileAccount}
-        />
-        <Stack.Screen
-          options={{headerShown: false}}
-          name="Clocking"
-          component={Clocking}
-        />
-        <Stack.Screen
-          options={{headerShown: false}}
-          name="sendClock"
-          component={SendClock}
-        />
-        <Stack.Screen
-          options={{headerShown: false}}
-          name="Camera"
-          component={Camera}
-        />
-      </Stack.Navigator>
-    </NavigationContainer>
+    <>
+      <NavigationContainer>
+        <Stack.Navigator screenOptions={{headerShown: false}}>
+          <Stack.Screen
+            options={{headerShown: false}}
+            name="Login"
+            component={LoginPage}
+          />
+          <Stack.Screen
+            options={{headerShown: false}}
+            name="ForgetPassword"
+            component={ForgetPassword}
+          />
+          <Stack.Screen
+            options={{headerShown: false}}
+            name="Tabs"
+            component={MyTabs}
+          />
+          <Stack.Screen
+            options={{headerShown: false}}
+            name="Attendance"
+            component={Attendance}
+          />
+          <Stack.Screen
+            options={{headerShown: false}}
+            name="Loan"
+            component={Loan}
+          />
+          <Stack.Screen
+            options={{headerShown: false}}
+            name="Leave"
+            component={Leave}
+          />
+          <Stack.Screen
+            options={{headerShown: false}}
+            name="Notifications"
+            component={Notification}
+          />
+          <Stack.Screen
+            options={{headerShown: false}}
+            name="ChangePassword"
+            component={ChangePassword}
+          />
+          <Stack.Screen
+            options={{headerShown: false}}
+            name="ProfileAccount"
+            component={ProfileAccount}
+          />
+          <Stack.Screen
+            options={{headerShown: false}}
+            name="Clocking"
+            component={Clocking}
+          />
+          <Stack.Screen
+            options={{headerShown: false}}
+            name="sendClock"
+            component={SendClock}
+          />
+          <Stack.Screen
+            options={{headerShown: false}}
+            name="Camera"
+            component={Camera}
+          />
+          <Stack.Screen
+            options={{headerShown: false}}
+            name="PermitLeaveRequest"
+            component={LeaveFromOffice}
+          />
+          <Stack.Screen
+            options={{headerShown: false}}
+            name="LeaveHistory"
+            component={LeaveHistory}
+          />
+          <Stack.Screen
+            options={{headerShown: false}}
+            name="PermitLeaveHistory"
+            component={PermitLeaveOfficeHistory}
+          />
+          <Stack.Screen
+            options={{headerShown: false}}
+            name="LeaveRequest"
+            component={LeaveRequest}
+          />
+        </Stack.Navigator>
+      </NavigationContainer>
+      <Toast config={toastConfig} />
+    </>
   );
 }
 const styles = StyleSheet.create({

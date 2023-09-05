@@ -12,6 +12,10 @@ import ProfileAccount from './Account/ProfileAccount';
 import Clocking from './Clocking/Clocking';
 import SendClock from './Clocking/SendClock';
 import Camera from './Clocking/Camera';
+import LeaveFromOffice from './Leave/LeaveFromOffice';
+import LeaveHistory from './Leave/LeaveHistory';
+import PermitLeaveOfficeHistory from './Leave/PermitLeaveOfficeHistory';
+import LeaveRequest from './Leave/LeaveRequest';
 
 export {
   LoginPage,
@@ -28,4 +32,8 @@ export {
   Clocking,
   SendClock,
   Camera,
+  LeaveFromOffice,
+  LeaveHistory,
+  PermitLeaveOfficeHistory,
+  LeaveRequest,
 };
