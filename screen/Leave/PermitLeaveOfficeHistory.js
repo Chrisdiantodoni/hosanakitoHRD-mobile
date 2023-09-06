@@ -9,10 +9,10 @@ import {
   Section,
 } from '../../components';
 
-const PermitLeaveOfficeHistory = ({navigation}) => {
+const PermitLeaveOfficeHistory = ({navigation, title}) => {
   return (
     <>
-      <Header title="Leave From Office" back={() => navigation.goBack()} />
+      <Header title={title} back={() => navigation.goBack()} />
       <Layout customStyles={{justifyContent: 'flex-start'}}>
         <Text>Leave</Text>
       </Layout>

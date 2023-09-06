@@ -9,7 +9,6 @@ import {
   Section,
 } from '../../components';
 
-// create a component
 const Leave = ({navigation}) => {
   const data = [
     {
@@ -22,11 +21,25 @@ const Leave = ({navigation}) => {
     },
     {
       name: 'Leave History',
-      nav: 'LeaveHistory',
+      nav: {
+        name: 'LeaveList',
+        params: {
+          title: 'Leave History',
+          data: [],
+          headers: [],
+        },
+      },
     },
     {
       name: 'Permit Leave Office History',
-      nav: 'PermitLeaveHistory',
+      nav: {
+        name: 'LeaveList',
+        params: {
+          title: 'Permit Leave Office History',
+          data: [],
+          headers: [],
+        },
+      },
     },
   ];
   return (

@@ -37,7 +37,7 @@ const Attendance = ({navigation}) => {
     <>
       <Header title="Attendance" back={() => navigation.goBack()} />
       <Layout customStyles={{justifyContent: 'flex-start'}}>
-        <Section data={data} />
+        <Section data={data} account={true} />
       </Layout>
     </>
   );

@@ -13,23 +13,258 @@ const Approval = () => {
   const data = [
     {
       name: 'Overtime',
-      nav: 'OvertimeApproval',
+      nav: {
+        name: 'ApprovalList',
+        params: {
+          title: 'Overtime List',
+          data: [
+            {
+              NIP: '1808003',
+              full_name: 'ZUL',
+              position: 'STAFF ACC',
+              department: 'HO',
+              date: '2023-08-23',
+              start: '19:00',
+              end: '20:00',
+              status: 'APPROVE',
+            },
+            {
+              NIP: '1808003',
+              full_name: 'ZUL',
+              position: 'STAFF ACC',
+              department: 'HO',
+              date: '2023-08-23',
+              start: '19:00',
+              end: '20:00',
+              status: 'APPROVE',
+            },
+            {
+              NIP: '1808003',
+              full_name: 'ZUL',
+              position: 'STAFF ACC',
+              department: 'HO',
+              date: '2023-08-23',
+              start: '19:00',
+              end: '20:00',
+              status: 'APPROVE',
+            },
+          ],
+          headers: [
+            'No',
+            'NIP',
+            'FULL NAME',
+            'POSITION',
+            'DEPARTMENT',
+            'OVERTIME DATE',
+            'OVERTIME START',
+            'OVERTIME END',
+            'STATUS',
+          ],
+        },
+      },
     },
     {
       name: 'Leave',
-      nav: 'LeaveApproval',
+      nav: {
+        name: 'ApprovalList',
+        params: {
+          title: 'Leave List',
+          data: [
+            {
+              NIP: '1808003',
+              full_name: 'ZUL',
+              position: 'STAFF ACC',
+              department: 'HO',
+              from: '2023-08-23',
+              To: '2023-08-23',
+              status: 'APPROVE',
+            },
+            {
+              NIP: '1808003',
+              full_name: 'ZUL',
+              position: 'STAFF ACC',
+              department: 'HO',
+              from: '2023-08-23',
+              To: '2023-08-23',
+              status: 'APPROVE',
+            },
+            {
+              NIP: '1808003',
+              full_name: 'ZUL',
+              position: 'STAFF ACC',
+              department: 'HO',
+              from: '2023-08-23',
+              To: '2023-08-23',
+              status: 'APPROVE',
+            },
+          ],
+          headers: [
+            'No',
+            'NIP',
+            'FULL NAME',
+            'POSITION',
+            'DEPARTMENT',
+            'FROM',
+            'TO',
+            'STATUS',
+          ],
+        },
+      },
     },
     {
       name: 'Permit Leave Office',
-      nav: 'PermitLeaveApproval',
+      nav: {
+        name: 'ApprovalList',
+        params: {
+          title: 'Permit Leave Office',
+          data: [
+            {
+              NIP: '1808003',
+              full_name: 'ZUL',
+              position: 'STAFF ACC',
+              department: 'HO',
+              leave_for: 'Keperluan Pribadi',
+              status: 'APPROVE',
+            },
+            {
+              NIP: '1808003',
+              full_name: 'ZUL',
+              position: 'STAFF ACC',
+              department: 'HO',
+              leave_for: 'Keperluan Pribadi',
+              status: 'APPROVE',
+            },
+            {
+              NIP: '1808003',
+              full_name: 'ZUL',
+              position: 'STAFF ACC',
+              department: 'HO',
+              leave_for: 'Keperluan Pribadi',
+              status: 'APPROVE',
+            },
+          ],
+          headers: [
+            'No',
+            'NIP',
+            'FULL NAME',
+            'POSITION',
+            'DEPARTMENT',
+            'LEAVE FOR',
+            'STATUS',
+          ],
+        },
+      },
     },
     {
       name: 'Loan',
-      nav: 'LoanApproval',
+      nav: {
+        name: 'ApprovalList',
+        params: {
+          title: 'Loan',
+          data: [
+            {
+              NIP: '1808003',
+              full_name: 'ZUL',
+              position: 'STAFF ACC',
+              department: 'HO',
+              DATE: '2023-08-23',
+              Assurance: 'BPKB',
+              Nominal_loan: 3000000,
+              Installment: 12,
+              paid_month: 250000,
+            },
+            {
+              NIP: '1808003',
+              full_name: 'ZUL',
+              position: 'STAFF ACC',
+              department: 'HO',
+              DATE: '2023-08-23',
+              Assurance: 'BPKB',
+              Nominal_loan: 3000000,
+              Installment: 12,
+              paid_month: 250000,
+            },
+            {
+              NIP: '1808003',
+              full_name: 'ZUL',
+              position: 'STAFF ACC',
+              department: 'HO',
+              DATE: '2023-08-23',
+              Assurance: 'BPKB',
+              Nominal_loan: 3000000,
+              Installment: 12,
+              paid_month: 250000,
+            },
+            {
+              NIP: '1808003',
+              full_name: 'ZUL',
+              position: 'STAFF ACC',
+              department: 'HO',
+              DATE: '2023-08-23',
+              Assurance: 'BPKB',
+              Nominal_loan: 3000000,
+              Installment: 12,
+              paid_month: 250000,
+            },
+          ],
+          headers: [
+            'No',
+            'NIP',
+            'FULL NAME',
+            'POSITION',
+            'DEPARTMENT',
+            'DATE',
+            'ASSURANCE',
+            'NOMINAL LOAN',
+            'INSTALLMENT',
+            'PAID / MONTH',
+          ],
+        },
+      },
     },
     {
       name: 'Man Power Plan',
-      nav: 'ManPowerPlanApproval',
+      nav: {
+        name: 'ApprovalList',
+        params: {
+          title: 'Man Power Plan',
+          data: [
+            {
+              SUBMITTED_BY: 'ZUL',
+              full_name: '180003',
+              department: 'HO',
+              Needed: 3,
+              Position: 'Admin Pajak',
+              status: 'Approve',
+            },
+            {
+              SUBMITTED_BY: 'ZUL',
+              full_name: '180003',
+              department: 'HO',
+              Needed: 3,
+              Position: 'Admin Pajak',
+              status: 'Approve',
+            },
+            {
+              SUBMITTED_BY: 'ZUL',
+              full_name: '180003',
+              department: 'HO',
+              Needed: 3,
+              Position: 'Admin Pajak',
+              status: 'Approve',
+            },
+          ],
+          headers: [
+            'No',
+            'SUBMITTED BY',
+            'NIP',
+            'DEPARTMENT',
+            'NEEDED',
+            'POSITION',
+            'STATUS',
+          ],
+        },
+      },
     },
   ];
 
@@ -37,7 +272,7 @@ const Approval = () => {
     <>
       <Header title="Approval" />
       <Layout customStyles={{justifyContent: 'flex-start'}}>
-        <Section data={data} />
+        <Section data={data} account={true} />
       </Layout>
     </>
   );

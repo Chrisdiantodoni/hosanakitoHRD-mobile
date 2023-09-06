@@ -35,7 +35,7 @@ const ProfileAccount = ({navigation}) => {
               <TextInput
                 value={data[key]}
                 style={styles.value}
-                disabled={false}
+                editable={false}
               />
             </View>
           ))}

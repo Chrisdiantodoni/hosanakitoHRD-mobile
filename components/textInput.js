@@ -7,9 +7,11 @@ const textInput = ({
   customStyles,
   type,
   Appearance,
-  disabled,
+  editable,
   secureTextEntry,
   value,
+  onContentSizeChange,
+  multiline,
 }) => {
   const fontSize = RFValue(16);
 
@@ -21,7 +23,9 @@ const textInput = ({
         customStyles,
         {fontSize}, // Terapkan ukuran teks responsif di sini
       ]}
-      editable={disabled}
+      multiline={multiline}
+      onContentSizeChange={onContentSizeChange}
+      editable={editable}
       secureTextEntry={secureTextEntry}
       value={value}
       keyboardType={type}></TextInput>

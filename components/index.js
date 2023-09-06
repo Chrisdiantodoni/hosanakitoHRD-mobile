@@ -6,6 +6,9 @@ import Header from './Header';
 import Section from './section';
 import CustomModal from './modal';
 import RadioButton from './radiobtn';
+import DateTimePicker from './dateTimePicker';
+import DropdownPicker from './dropdown';
+import Table from './table';
 
 export {
   Button,
@@ -16,4 +19,7 @@ export {
   Section,
   CustomModal,
   RadioButton,
+  DateTimePicker,
+  DropdownPicker,
+  Table,
 };

@@ -5,16 +5,16 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {
   LoginPage,
-  ForgetPassword,
   Loan,
+  ForgetPassword,
   Home,
   Account,
   Approval,
   Attendance,
   Leave,
-  Notification,
   ChangePassword,
   ProfileAccount,
+  Notification,
   Clocking,
   SendClock,
   Camera,
@@ -22,6 +22,16 @@ import {
   LeaveHistory,
   PermitLeaveOfficeHistory,
   LeaveRequest,
+  Overtime,
+  ClockingResult,
+  OvertimeHistory,
+  LeaveApproval,
+  ManPowerPlanApproval,
+  LoanApproval,
+  OvertimeApproval,
+  PermitLeaveOfficeApproval,
+  ApprovalList,
+  LeaveList,
 } from './screen';
 import Icon from 'react-native-vector-icons/dist/Ionicons';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
@@ -197,6 +207,56 @@ function App(props) {
             options={{headerShown: false}}
             name="LeaveRequest"
             component={LeaveRequest}
+          />
+          <Stack.Screen
+            options={{headerShown: false}}
+            name="Overtime"
+            component={Overtime}
+          />
+          <Stack.Screen
+            options={{headerShown: false}}
+            name="ClockingResult"
+            component={ClockingResult}
+          />
+          <Stack.Screen
+            options={{headerShown: false}}
+            name="OvertimeHistory"
+            component={OvertimeHistory}
+          />
+          <Stack.Screen
+            options={{headerShown: false}}
+            name="LeaveApproval"
+            component={LeaveApproval}
+          />
+          <Stack.Screen
+            options={{headerShown: false}}
+            name="ManPowerPlanApproval"
+            component={ManPowerPlanApproval}
+          />
+          <Stack.Screen
+            options={{headerShown: false}}
+            name="LoanApproval"
+            component={LoanApproval}
+          />
+          <Stack.Screen
+            options={{headerShown: false}}
+            name="OvertimeApproval"
+            component={OvertimeApproval}
+          />
+          <Stack.Screen
+            options={{headerShown: false}}
+            name="PermitLeaveApproval"
+            component={PermitLeaveOfficeApproval}
+          />
+          <Stack.Screen
+            options={{headerShown: false}}
+            name="ApprovalList"
+            component={ApprovalList}
+          />
+          <Stack.Screen
+            options={{headerShown: false}}
+            name="LeaveList"
+            component={LeaveList}
           />
         </Stack.Navigator>
       </NavigationContainer>

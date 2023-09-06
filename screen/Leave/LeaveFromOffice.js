@@ -8,14 +8,33 @@ import {
   Text,
   Section,
   RadioButton,
+  DateTimePicker,
 } from '../../components';
 import Icon from 'react-native-vector-icons/Ionicons';
 
 const LeaveFromOffice = ({navigation}) => {
   const [selectedOption, setSelectedOption] = useState('Keperluan Pribadi');
+  const [out, setOut] = useState(new Date());
+  const [arrive, setArrive] = useState(new Date());
+  const [from, setFrom] = useState(new Date());
+  const [to, setTo] = useState(new Date());
 
   const handleRadioSelect = option => {
     setSelectedOption(option);
+  };
+
+  const handleArriveTimeChange = selectedTime => {
+    setArrive(selectedTime);
+  };
+
+  const handleOutTimeChange = selectedTime => {
+    setOut(selectedTime);
+  };
+  const handleFromTimeChange = selectedTime => {
+    setFrom(selectedTime);
+  };
+  const handleToTimeChange = selectedTime => {
+    setTo(selectedTime);
   };
 
   const RenderKeperluanPribadi = () => {
@@ -24,37 +43,30 @@ const LeaveFromOffice = ({navigation}) => {
         <View style={styles.ViewRender}>
           <View style={styles.subContainerViewRender}>
             <Text>From</Text>
-            <View
+            {/* <View
               style={{
                 flexDirection: 'row',
                 justifyContent: 'flex-end',
                 alignItems: 'center',
-              }}>
-              <TextInput />
-              <Icon
-                name="time-outline"
-                size={25}
-                color={'#a60f21'}
-                style={{position: 'absolute', paddingRight: 10}}
-              />
-            </View>
+              }}> */}
+            <DateTimePicker
+              value={from}
+              onChange={handleFromTimeChange}
+              mode="time"
+              placeholder="Select Time"
+              iconColor="#a60f21"
+            />
+            {/* </View> */}
           </View>
           <View style={styles.subContainerViewRender}>
             <Text>To</Text>
-            <View
-              style={{
-                flexDirection: 'row',
-                justifyContent: 'flex-end',
-                alignItems: 'center',
-              }}>
-              <TextInput />
-              <Icon
-                name="time-outline"
-                size={25}
-                color={'#a60f21'}
-                style={{position: 'absolute', paddingRight: 10}}
-              />
-            </View>
+            <DateTimePicker
+              value={to}
+              onChange={handleToTimeChange}
+              mode="time"
+              placeholder="Select Time"
+              iconColor="#a60f21"
+            />
           </View>
         </View>
         <Text>Description</Text>
@@ -81,20 +93,13 @@ const LeaveFromOffice = ({navigation}) => {
           </View>
           <View style={styles.subContainerViewRender}>
             <Text>Out</Text>
-            <View
-              style={{
-                flexDirection: 'row',
-                justifyContent: 'flex-end',
-                alignItems: 'center',
-              }}>
-              <TextInput />
-              <Icon
-                name="time-outline"
-                size={25}
-                color={'#a60f21'}
-                style={{position: 'absolute', paddingRight: 10}}
-              />
-            </View>
+            <DateTimePicker
+              value={out}
+              onChange={handleOutTimeChange}
+              mode="time"
+              placeholder="Select Time"
+              iconColor="#a60f21"
+            />
           </View>
         </View>
         <View style={styles.ViewRender}>
@@ -111,20 +116,13 @@ const LeaveFromOffice = ({navigation}) => {
           </View>
           <View style={styles.subContainerViewRender}>
             <Text>Arrive</Text>
-            <View
-              style={{
-                flexDirection: 'row',
-                justifyContent: 'flex-end',
-                alignItems: 'center',
-              }}>
-              <TextInput />
-              <Icon
-                name="time-outline"
-                size={25}
-                color={'#a60f21'}
-                style={{position: 'absolute', paddingRight: 10}}
-              />
-            </View>
+            <DateTimePicker
+              value={arrive}
+              onChange={handleArriveTimeChange}
+              mode="time"
+              placeholder="Select Time"
+              iconColor="#a60f21"
+            />
           </View>
         </View>
         <Text>Description</Text>

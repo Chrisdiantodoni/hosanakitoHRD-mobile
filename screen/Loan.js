@@ -16,6 +16,7 @@ import {
 } from '../components';
 import {currency} from '../utils';
 import * as ImagePicker from 'react-native-image-picker';
+import {RFValue} from 'react-native-responsive-fontsize';
 
 const Loan = ({navigation}) => {
   const [response, setResponse] = useState(null);
@@ -38,10 +39,12 @@ const Loan = ({navigation}) => {
 
   const onCapturePress = () => {
     ImagePicker.launchCamera(cameraOptions, setResponse);
+    setIsModalVisible(false);
   };
 
   const onGalleryPress = () => {
     ImagePicker.launchImageLibrary(libraryOptions, setResponse);
+    setIsModalVisible(false);
   };
 
   const calculatePaidMonth = () => {
@@ -80,7 +83,7 @@ const Loan = ({navigation}) => {
         <Text>Paid / Month</Text>
         <TextInput
           type={'number-pad'}
-          disabled={false}
+          editable={false}
           value={calculatePaidMonth()}
         />
         <Text>Assurance</Text>
@@ -109,16 +112,16 @@ const Loan = ({navigation}) => {
           title={'Upload Image'}
           visible={isModalVisible}
           onClose={() => setIsModalVisible(!isModalVisible)}>
-          <View style={{alignItems: 'center'}}>
+          <View
+            style={{alignItems: 'center', flexDirection: 'row', width: '35%'}}>
             <Button onPress={onCapturePress} title={'Capture Image'}></Button>
             <Button
               onPress={onGalleryPress}
               title={'Select From Gallery'}></Button>
           </View>
         </CustomModal>
-
         {response?.assets &&
-          response?.assets.map(({uri}) => (
+          response?.assets.map(({uri, index}) => (
             <View key={uri} style={styles.imageContainer}>
               <Image
                 resizeMode="cover"
@@ -126,6 +129,11 @@ const Loan = ({navigation}) => {
                 style={styles.image}
                 source={{uri: uri}}
               />
+              <TouchableOpacity
+                style={styles.closeButton}
+                onPress={() => setResponse(null)}>
+                <Text customStyles={styles.closeButtonText}>X</Text>
+              </TouchableOpacity>
             </View>
           ))}
         <Button title={'Request'} />
@@ -150,6 +158,21 @@ const styles = StyleSheet.create({
   imageContainer: {
     marginVertical: 24,
     alignItems: 'center',
+  },
+  closeButton: {
+    position: 'absolute',
+    top: 0,
+    right: 0,
+    borderRadius: 12,
+    width: 24,
+    height: 24,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  closeButtonText: {
+    color: 'white',
+    fontSize: RFValue(20),
+    fontWeight: 'bold',
   },
 });
 
