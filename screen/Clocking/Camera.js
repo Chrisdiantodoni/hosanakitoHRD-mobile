@@ -15,13 +15,16 @@ const height = Dimensions.get('window').height;
 import Toast from 'react-native-toast-message';
 
 const CameraScreen = ({navigation, route}) => {
-  const {FaceRecognitionModules} = NativeModules;
+  const {FaceRecognitionModule} = NativeModules;
   const {title, time} = route.params;
   const cameraRef = useRef(null);
   const [photoUri, setPhotoUri] = useState(null);
+  const [numFaces, setNumFaces] = useState(0); // State to track the number of detected faces
   const [box, setBox] = useState(null);
+
   const takePicture = async () => {
-    if (box) {
+    if (numFaces === 1) {
+      // Allow taking a photo only if one face is detected
       if (cameraRef.current) {
         const options = {quality: 0.5, base64: true};
         const data = await cameraRef.current.takePictureAsync(options);
@@ -30,12 +33,15 @@ const CameraScreen = ({navigation, route}) => {
     } else {
       Toast.show({
         type: 'error',
-        text2: 'Show your face',
+        text2: 'Show only one face',
       });
     }
   };
 
   const handlerFace = ({faces}) => {
+    // Count the number of detected faces
+    setNumFaces(faces.length);
+
     if (faces[0]) {
       const face = faces[0];
       const centerX = face.bounds.origin.x + face.bounds.size.width / 2;
@@ -63,6 +69,14 @@ const CameraScreen = ({navigation, route}) => {
     } else {
       setBox(null);
     }
+  };
+
+  const detectFace = () => {
+    navigation.navigate('sendClock', {
+      title,
+      time,
+      photo: photoUri,
+    });
   };
 
   return (
@@ -96,7 +110,7 @@ const CameraScreen = ({navigation, route}) => {
               alignItems: 'center',
               width: '100%',
             }}>
-            <Button onPress={takePicture} title="Take Photo"></Button>
+            <Button onPress={takePicture} title="Take Photo" />
           </View>
         ) : (
           <View
@@ -105,16 +119,7 @@ const CameraScreen = ({navigation, route}) => {
               justifyContent: 'flex-end',
               alignItems: 'center',
             }}>
-            <Button
-              onPress={() =>
-                navigation.navigate('sendClock', {
-                  title,
-                  time,
-                  photo: photoUri,
-                })
-              }
-              title="Send Photo"
-            />
+            <Button onPress={detectFace} title="Send Photo" />
           </View>
         )}
       </Layout>
