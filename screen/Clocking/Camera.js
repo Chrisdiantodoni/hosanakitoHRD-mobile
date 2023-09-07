@@ -6,6 +6,7 @@ import {
   Image,
   Dimensions,
   StyleSheet,
+  NativeModules,
 } from 'react-native';
 import {RNCamera} from 'react-native-camera';
 import {Text, TextInput, Header, Button, Layout} from '../../components';
@@ -14,6 +15,7 @@ const height = Dimensions.get('window').height;
 import Toast from 'react-native-toast-message';
 
 const CameraScreen = ({navigation, route}) => {
+  const {FaceRecognitionModules} = NativeModules;
   const {title, time} = route.params;
   const cameraRef = useRef(null);
   const [photoUri, setPhotoUri] = useState(null);
@@ -28,7 +30,7 @@ const CameraScreen = ({navigation, route}) => {
     } else {
       Toast.show({
         type: 'error',
-        text2: 'Tampilkan Wajah Anda',
+        text2: 'Show your face',
       });
     }
   };
@@ -70,7 +72,7 @@ const CameraScreen = ({navigation, route}) => {
         {photoUri ? (
           <Image
             source={{uri: photoUri}}
-            style={{width: '100%', height: '50%'}}
+            style={{width: '100%', height: '70%'}}
           />
         ) : (
           <>

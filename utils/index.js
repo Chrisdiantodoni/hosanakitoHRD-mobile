@@ -1,4 +1,5 @@
 import currency from './currency';
 import styles from './styles';
+import getLocation from './geolocation';
 
-export {currency, styles};
+export {currency, styles, getLocation};

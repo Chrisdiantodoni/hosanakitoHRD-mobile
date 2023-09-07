@@ -17,6 +17,7 @@ const Approval = () => {
         name: 'ApprovalList',
         params: {
           title: 'Overtime List',
+          navi_name: 'OvertimeApproval',
           data: [
             {
               NIP: '1808003',
@@ -67,6 +68,7 @@ const Approval = () => {
       name: 'Leave',
       nav: {
         name: 'ApprovalList',
+        navi_name: 'LeaveRequest',
         params: {
           title: 'Leave List',
           data: [
@@ -117,6 +119,7 @@ const Approval = () => {
         name: 'ApprovalList',
         params: {
           title: 'Permit Leave Office',
+          navi_name: 'PermitLeaveApproval',
           data: [
             {
               NIP: '1808003',
@@ -161,6 +164,7 @@ const Approval = () => {
         name: 'ApprovalList',
         params: {
           title: 'Loan',
+          navi_name: 'LoanApproval',
           data: [
             {
               NIP: '1808003',
@@ -228,6 +232,7 @@ const Approval = () => {
         name: 'ApprovalList',
         params: {
           title: 'Man Power Plan',
+          navi_name: 'ManPowerPlanApproval',
           data: [
             {
               SUBMITTED_BY: 'ZUL',

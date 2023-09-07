@@ -10,12 +10,26 @@ import {
   Button,
 } from '../../components';
 
-const OvertimeApproval = ({navigation}) => {
+const OvertimeApproval = ({route, navigation}) => {
+  const {rowData} = route.params;
+  const [id, name, position, location, date, startTime, endTime, status] =
+    rowData;
   return (
-    <View>
+    <>
       <Header title="Overtime Approval" back={() => navigation.goBack()} />
-      <Text>Overtime Approval</Text>
-    </View>
+      <Layout customStyles={{justifyContent: 'flex-start', paddingTop: 20}}>
+        <Text>NIP</Text>
+        <TextInput value={id} />
+        <Text>Full Name</Text>
+        <TextInput value={name} />
+        <Text>Overtime Date</Text>
+        <TextInput value={date} />
+        <Text>Position</Text>
+        <TextInput value={position} />
+        <Text>Branch</Text>
+        <TextInput value={location} />
+      </Layout>
+    </>
   );
 };
 

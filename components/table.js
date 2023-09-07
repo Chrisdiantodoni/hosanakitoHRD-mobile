@@ -2,12 +2,13 @@ import React from 'react';
 import {View, StyleSheet, ScrollView, TouchableOpacity} from 'react-native';
 import {RFValue} from 'react-native-responsive-fontsize';
 import {Table, Row, TableWrapper} from 'react-native-table-component';
+import {currency} from '../utils';
 
 const table = ({headers, data, onRowPress, title}) => {
   const widthArrTable = () => {
     switch (title) {
       case 'Overtime List':
-        return [40, 60, 140, 100, 70, 80, 80, 80, 100];
+        return [40, 60, 140, 100, 100, 80, 80, 80, 100];
       case 'Leave List':
         return [40, 60, 140, 100, 70, 80, 80, 100];
       case 'Permit Leave Office':
@@ -24,22 +25,34 @@ const table = ({headers, data, onRowPress, title}) => {
         break;
     }
   };
+
+  const formatNumberWithSeparator = number => {
+    return currency(number);
+  };
+
   const renderRows = () => {
     return data.map((rowData, index) => {
+      const formattedRowData = rowData.map((cellData, cellIndex) => {
+        if (typeof cellData === 'number') {
+          return formatNumberWithSeparator(cellData);
+        } else {
+          return cellData;
+        }
+      });
+
       return (
         <TouchableOpacity
           key={index}
           onPress={() => onRowPress && onRowPress(rowData)}>
           <Row
-            data={[index + 1, ...rowData]}
-            textStyle={styles.textRow} // Pass textStyle as an object
+            data={[index + 1, ...formattedRowData]}
+            textStyle={styles.textRow}
             widthArr={widthArrTable()}
           />
         </TouchableOpacity>
       );
     });
   };
-
   return (
     <ScrollView horizontal>
       <View style={styles.container}>
@@ -63,6 +76,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
+    paddingTop: 10,
   },
   border: {
     borderWidth: 1,
@@ -85,6 +99,7 @@ const styles = StyleSheet.create({
     marginVertical: 0,
     paddingHorizontal: 0,
     borderWidth: 0.2,
+    padding: 10,
   },
 });
 

@@ -37,6 +37,7 @@ import Icon from 'react-native-vector-icons/dist/Ionicons';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import Toast, {BaseToast, ErrorToast} from 'react-native-toast-message';
 import {RFValue} from 'react-native-responsive-fontsize';
+import Shift from './screen/Attendance/Shift';
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
@@ -99,7 +100,7 @@ const toastConfig = {
       contentContainerStyle={{paddingHorizontal: 15}}
       text1Style={{
         fontSize: RFValue(15),
-        fontWeight: '400',
+        fontWeight: '700',
         color: '#198754',
       }}
     />
@@ -111,12 +112,12 @@ const toastConfig = {
       {...props}
       text1Style={{
         fontSize: RFValue(17),
-        fontWeight: '400',
+        fontWeight: '700',
         color: '#CC0000',
       }}
       text2Style={{
         fontSize: RFValue(15),
-        fontWeight: '400',
+        fontWeight: '700',
         color: '#CC0000',
       }}
     />
@@ -257,6 +258,11 @@ function App(props) {
             options={{headerShown: false}}
             name="LeaveList"
             component={LeaveList}
+          />
+          <Stack.Screen
+            options={{headerShown: false}}
+            name="Shift"
+            component={Shift}
           />
         </Stack.Navigator>
       </NavigationContainer>

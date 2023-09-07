@@ -9,6 +9,7 @@ import RadioButton from './radiobtn';
 import DateTimePicker from './dateTimePicker';
 import DropdownPicker from './dropdown';
 import Table from './table';
+import MapScreen from './mapScreen';
 
 export {
   Button,
@@ -22,4 +23,5 @@ export {
   DateTimePicker,
   DropdownPicker,
   Table,
+  MapScreen,
 };

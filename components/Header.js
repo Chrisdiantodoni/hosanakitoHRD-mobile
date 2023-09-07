@@ -6,30 +6,35 @@ import {useNavigation} from '@react-navigation/native';
 
 const Header = ({title, icon, back}) => {
   const fontSize = RFValue(20);
-  const headerStyle = {
-    ...styles.header,
-    justifyContent: back ? 'flex-start' : 'space-between',
-  };
+
   const navigation = useNavigation();
+
   return (
-    <View style={headerStyle}>
-      {back ? (
-        <TouchableOpacity onPress={back}>
-          <Icon name="chevron-back" size={25} color={'#FFF'} />
-        </TouchableOpacity>
-      ) : null}
+    <View style={styles.header}>
+      <View style={styles.leftContainer}>
+        {back ? (
+          <TouchableOpacity onPress={back}>
+            <Icon name="chevron-back" size={25} color={'#FFF'} />
+          </TouchableOpacity>
+        ) : null}
+      </View>
       <Text
         style={[
           styles.headerText,
-          {fontSize: fontSize, marginLeft: back ? 20 : 0},
+          {
+            fontSize: fontSize,
+          },
         ]}>
         {title}
       </Text>
-      {icon ? (
-        <TouchableOpacity onPress={() => navigation.navigate('Notifications')}>
-          <Icon name={icon} size={25} color={'#FFF'} />
-        </TouchableOpacity>
-      ) : null}
+      <View style={styles.rightContainer}>
+        {icon ? (
+          <TouchableOpacity
+            onPress={() => navigation.navigate('Notifications')}>
+            <Icon name={icon} size={25} color={'#FFF'} />
+          </TouchableOpacity>
+        ) : null}
+      </View>
     </View>
   );
 };
@@ -43,12 +48,21 @@ const styles = StyleSheet.create({
     paddingHorizontal: 16,
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'space-between',
+    justifyContent: 'center',
   },
   headerText: {
-    fontSize: 24, // Change to your desired font size
-    color: 'white', // Change to your desired text color
-    fontWeight: 'bold', // You can adjust the font weight
+    color: 'white',
+    fontWeight: '700',
+  },
+  leftContainer: {
+    position: 'absolute',
+    left: 0,
+    paddingLeft: 16,
+  },
+  rightContainer: {
+    position: 'absolute',
+    right: 0,
+    paddingRight: 16,
   },
 });
 

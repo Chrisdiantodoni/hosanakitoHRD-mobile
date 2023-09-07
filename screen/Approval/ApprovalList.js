@@ -11,17 +11,23 @@ import {
   Table,
 } from '../../components';
 const ApprovalList = ({route, navigation}) => {
-  const {title, data, headers} = route.params;
+  const {title, data, headers, navi_name} = route.params;
   console.log(data);
   const tableData = data.map(obj => Object.values(obj));
-  tableData.forEach(innerArray => console.log(innerArray));
   console.log(tableData);
   return (
     <>
       <Header title={title} back={() => navigation.goBack()} />
       <Layout customStyles={{justifyContent: 'flex-start', paddingTop: 20}}>
         <Text>{title}</Text>
-        <Table data={tableData} headers={headers} title={title} />
+        <Table
+          data={tableData}
+          headers={headers}
+          title={title}
+          onRowPress={(rowData, rowID) => {
+            navigation.navigate(navi_name, {rowData});
+          }}
+        />
       </Layout>
     </>
   );

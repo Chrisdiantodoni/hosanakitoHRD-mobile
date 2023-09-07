@@ -12,13 +12,12 @@ import {
 } from '../../components';
 
 const ClockingResult = ({navigation}) => {
-  const data = [];
   return (
     <>
       <Header title="Clocking Result" back={() => navigation.goBack()} />
       <Layout customStyles={{justifyContent: 'flex-start', paddingTop: 20}}>
-        <Text>Overtime History</Text>
-        <Table data={data} />
+        <Text>Clocking Result</Text>
+        {/* <Table data={data} /> */}
       </Layout>
     </>
   );

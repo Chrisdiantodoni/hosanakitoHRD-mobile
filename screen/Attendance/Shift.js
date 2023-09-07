@@ -13,10 +13,12 @@ import {DateTimePickerAndroid} from '@react-native-community/datetimepicker';
 
 const Shift = ({navigation}) => {
   return (
-    <View>
-      <Header title="Overtime" back={() => navigation.goBack()} />
-      <Text>Shift</Text>
-    </View>
+    <>
+      <Header title="Shift" back={() => navigation.goBack()} />
+      <Layout customStyles={{justifyContent: 'flex-start', paddingTop: 20}}>
+        <Text>Shift</Text>
+      </Layout>
+    </>
   );
 };
 
